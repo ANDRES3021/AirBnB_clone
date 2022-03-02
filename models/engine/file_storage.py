@@ -47,3 +47,10 @@ class FileStorage():
                 FileStorage.__objects[clave] = eval(valor["__class__"])(**valor)
         else:
             return
+
+    def classes(self):
+        """Returna un diccionario de clases para verificar
+        """
+        classes = {"BaseModel": BaseModel
+                        }
+        return classes
