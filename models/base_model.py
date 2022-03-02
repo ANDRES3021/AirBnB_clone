@@ -38,8 +38,6 @@ class BaseModel():
 
     def to_dict(self):
         """Returna un diccionario con todas las clases/valor de la instancia"""
-        dictionary = self.__dict__
-        dictionary.update({"__class__": type(self).__name__})
-        dictionary.update({"created_at": self.created_at.isoformat()})
-        dictionary.update({"updated_at": self.updated_at.isoformat()})
+        dictionary = self.__dict__.copy()
+        dictionary.update({"__class__": type(self).__name__,"created_at": self.created_at.isoformat(),"updated_at": self.updated_at.isoformat()})
         return dictionary

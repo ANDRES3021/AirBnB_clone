@@ -1,18 +1,20 @@
 #!/usr/bin/python3
-
+""""""
 import cmd
 import sys
 
-prompt = '(hbnb) '
 class HBNBCommand(cmd.Cmd):
-
+    """
+    """
+    prompt = '(hbnb) '
+    
     def do_quit(self, arg):
         """
-        comando quit para salir del programa
+        Quit command to exit the program
         """
         sys.exit(0)
     
-    def emptyline(self, arg):
+    def emptyline(self):
         """
         si pasan un ina linea vacia seguida de un enter no hace nada
         """
