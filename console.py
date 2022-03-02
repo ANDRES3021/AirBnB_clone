@@ -9,7 +9,8 @@ class HBNBCommand(cmd.Cmd):
     """
     """
     prompt = '(hbnb) '
-    
+    list_class = ['BaseModel']
+
     def do_quit(self, arg):
         """
         Quit command to exit the program
@@ -51,7 +52,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
         elif argum[0] not in storage.classes():
             print("** class doesn't exist **")
-        elif  len(argum) < 2:
+        elif  len(argum) == 2:
             print("** instance id missing **")
         else:
             llave = "{}.{}".format(argum[0], argum[1])
@@ -78,7 +79,28 @@ class HBNBCommand(cmd.Cmd):
             else:
                 storage.all().pop(llave)
                 storage.save()
-
+    def do_all(self, arg):
+        """Prints all string representation of all instances based or not
+        on the class name.do_all
+        """
+        args = arg.split()
+        list_strings = []
+        objects = storage.all()
+        for key in objects.keys():
+            value = objects.get(key)
+            if args:
+                # por si pide objetos de alguna clase
+                if args[0] in self.list_class:
+                    # para crear algun tipo de objeto
+                    if value.__class__.__name__ == args[0]:
+                        # si la clase de objeto coincide
+                        list_strings.append(value.__str__())
+                else:
+                    print("** class doesn't exist **")
+                    return
+            else:
+                list_strings.append(objects[key].__str__())
+        print(list_strings)
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
