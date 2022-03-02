@@ -8,7 +8,9 @@ import uuid
 
 class BaseModel():
     """
-    Como su nombre lo indica es la clase base de este proyecto y su funcion es contener tanto los atributos y metodos comunes de otras clases.
+    Como su nombre lo indica es la clase base de este proyecto
+    y su funcion es contener tanto los atributos y metodos
+    comunes de otras clases.
     """
     def __init__(self, *args, **kwargs):
         """Initialize the instance attributes
@@ -22,13 +24,14 @@ class BaseModel():
         else:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
-            self.updated_at =  datetime.now()
+            self.updated_at = datetime.now()
             from models.__init__ import storage
             storage.new(self)
 
     def __str__(self):
         """Cancela el comportamiento normal de __str__"""
-        return ("[{}] ({}) {}".format(type(self).__name__, self.id, self.__dict__))
+        return ("[{}] ({}) {}".format(type(self).__name__, self.id,
+                                      self.__dict__))
 
     def save(self):
         """Actualiza el atributo update con la hora y fecha actual"""
