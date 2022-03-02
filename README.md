@@ -50,6 +50,8 @@
 - https://yasoob.me/2013/08/04/args-and-kwargs-in-python-explained/
 - https://www.pythonsheets.com/notes/python-tests.html
 - https://www.programiz.com/python-programming/datetime/strptime
+- https://docs.python.org/es/3.10/library/os.html
+- https://www.programiz.com/python-programming/methods/built-in/eval
 
 ------------
 
@@ -59,7 +61,7 @@
 ## Carlos Andrés Pardo Rodríguez:
 - Git: https://github.com/ANDRES3021
 - Twitter: https://twitter.com/CarlosA54648157
-- Linkedin: 
+- Linkedin: https://www.linkedin.com/in/carlos-andres-pardo-rodriguez-8bbb90202/
 
 ## Juan Sebastian Avendaño Gonzalez:
 - Git: https://github.com/AvendanoisPepe
