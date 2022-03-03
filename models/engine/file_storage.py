@@ -12,9 +12,11 @@ from models.place import Place
 from models.review import Review
 from models.state import State
 
+
 class FileStorage():
     """
-    Esta clase cumple con el objetivo de Serialización-Deserialización un archivo .json.
+    Esta clase cumple con el objetivo de Serialización-
+    Deserialización un archivo .json.
     """
     __file_path = "file.json"
     __objects = {}
@@ -25,15 +27,18 @@ class FileStorage():
         return (self.__objects)
 
     def new(self, obj):
-        """Crea una nueva clave (class.id) y valor (diccionario de atributos de instancia)
+        """
+        Crea una nueva clave (class.id) y valor
+        (diccionario de atributos de instancia)
         """
         clave = "{}.{}".format(type(obj).__name__, obj.id)
         FileStorage.__objects[clave] = obj
 
     def save(self):
         """
-        Serializa __objetos en el archivo JSON 
-        Agrega todas las clases y valores a __objets para guardarlo en un archivo .json
+        Serializa __objetos en el archivo JSON
+        Agrega todas las clases y valores a __objets para
+        guardarlo en un archivo .json
         """
         diccionarioCarlos = {}
         for clave, valor in FileStorage.__objects.items():
@@ -50,14 +55,15 @@ class FileStorage():
         if os.path.isfile(FileStorage.__file_path):
             with open(self.__file_path, "r", encoding='utf-8') as pepe:
                 objeto = json.load(pepe)
-            for clave, valor in objeto.items():
-                FileStorage.__objects[clave] = eval(valor["__class__"])(**valor)
+            for clave, val in objeto.items():
+                FileStorage.__objects[clave] = eval(val["__class__"])(**val)
         else:
             return
 
     def classes(self):
         """Returna un diccionario de clases para verificar
         """
-        classes = {"BaseModel": BaseModel, "User": User,
-                   "Amenity": Amenity, "City": City, "Place": Place, "Review": Review, "State": State}
+        classes = {"BaseModel": BaseModel, "User": User, "Amenity": Amenity,
+                   "City": City, "Place": Place, "Review": Review,
+                   "State": State}
         return classes

@@ -11,19 +11,21 @@ from models.place import Place
 from models.review import Review
 from models.state import State
 
+
 class HBNBCommand(cmd.Cmd):
     """
     Clase para el interprete del comando para manipular la consola.
     """
     prompt = '(hbnb) '
-    list_class = ['BaseModel', 'User', 'Amenity', 'City', 'Place', 'Review', 'State']
+    list_class = ['BaseModel', 'User', 'Amenity', 'City',
+                  'Place', 'Review', 'State']
 
     def do_quit(self, arg):
         """
         Quit command to exit the program
         """
         sys.exit(0)
-    
+
     def emptyline(self):
         """
         si pasan un ina linea vacia seguida de un enter no hace nada
@@ -59,7 +61,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
         elif argum[0] not in storage.classes():
             print("** class doesn't exist **")
-        elif  len(argum) < 2:
+        elif len(argum) < 2:
             print("** instance id missing **")
         else:
             llave = "{}.{}".format(argum[0], argum[1])
@@ -77,7 +79,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
         elif argum[0] not in storage.classes():
             print("** class doesn't exist **")
-        elif  len(argum) < 2:
+        elif len(argum) < 2:
             print("** instance id missing **")
         else:
             llave = "{}.{}".format(argum[0], argum[1])
@@ -89,7 +91,9 @@ class HBNBCommand(cmd.Cmd):
 
     def do_update(self, arg):
         """
-        Actualiza una instancia basada en el nombre de la clase y la identificación agregando o actualizando el atributo.
+        Actualiza una instancia basada en el nombre de
+        la clase y la identificación agregando o actualizando
+        el atributo.
         """
         argum = arg.split()
         args_size = len(argum)
@@ -98,7 +102,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
         elif argum[0] not in storage.classes():
             print("** class doesn't exist **")
-        elif  len(argum) < 2:
+        elif len(argum) < 2:
             print("** instance id missing **")
         elif len(argum) == 2:
             print("* attribute name missing *")
@@ -137,6 +141,7 @@ class HBNBCommand(cmd.Cmd):
             else:
                 list_strings.append(objects[key].__str__())
         print(list_strings)
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()

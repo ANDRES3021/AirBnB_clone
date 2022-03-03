@@ -1,11 +1,14 @@
 #!/usr/bin/python3
 """
-
+Modulo de la clase Place que hereda de BaseModel
 """
 from models.base_model import BaseModel
 
+
 class Place(BaseModel):
-    
+    """
+    Clase Place que contiene varios atributos.
+    """
     city_id = ""
     user_id = ""
     name = ""
