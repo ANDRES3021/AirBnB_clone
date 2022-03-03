@@ -11,7 +11,7 @@ class HBNBCommand(cmd.Cmd):
     Clase para el interprete del comando para manipular la consola.
     """
     prompt = '(hbnb) '
-    list_class = ['BaseModel']
+    list_class = ['BaseModel', 'User']
 
     def do_quit(self, arg):
         """
