@@ -5,6 +5,7 @@ Definimos el modulo FileStorage
 import json
 import os
 from models.base_model import BaseModel
+from models.user import User
 
 class FileStorage():
     """
@@ -52,6 +53,6 @@ class FileStorage():
     def classes(self):
         """Returna un diccionario de clases para verificar
         """
-        classes = {"BaseModel": BaseModel
+        classes = {"BaseModel": BaseModel, "User": User
                         }
         return classes
