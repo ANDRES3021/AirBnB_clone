@@ -5,13 +5,18 @@ import sys
 from models import storage
 from models.base_model import BaseModel
 from models.user import User
+from models.amenity import Amenity
+from models.city import City
+from models.place import Place
+from models.review import Review
+from models.state import State
 
 class HBNBCommand(cmd.Cmd):
     """
     Clase para el interprete del comando para manipular la consola.
     """
     prompt = '(hbnb) '
-    list_class = ['BaseModel', 'User']
+    list_class = ['BaseModel', 'User', 'Amenity', 'City', 'Place', 'Review', 'State']
 
     def do_quit(self, arg):
         """
