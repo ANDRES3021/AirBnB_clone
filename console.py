@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""""""
+"""Módulo para el punto de entrada del intérprete de comandos."""
 import cmd
 import sys
 from models import storage
@@ -7,6 +7,7 @@ from models.base_model import BaseModel
 
 class HBNBCommand(cmd.Cmd):
     """
+    Clase para el interprete del comando para manipular la consola.
     """
     prompt = '(hbnb) '
     list_class = ['BaseModel']
@@ -82,6 +83,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_update(self, arg):
         """
+        Actualiza una instancia basada en el nombre de la clase y la identificación agregando o actualizando el atributo.
         """
         argum = arg.split()
         args_size = len(argum)
@@ -92,17 +94,20 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
         elif  len(argum) < 2:
             print("** instance id missing **")
+        elif len(argum) == 2:
+            print("* attribute name missing *")
+        elif len(argum) == 3:
+            print("* value missing *")
         else:
             llave = "{}.{}".format(argum[0], argum[1])
-            busqueda = storage.all().get(llave)
-            if busqueda is None:
-                print("** no instance found **")
-            elif args_size == 2:
-                    print('** attribute name missing **')
-            elif args_size == 3:
-                print('** value missing **')
+            argum[3] = int(argum[3]) if argum[3][0] != '"' else argum[3][1:-1]
+            if llave in storage.all().keys():
+                val = storage.all()[llave]
+                val.__dict__[argum[2]] = argum[3]
+                storage.all()[llave] = val
+                storage.save()
             else:
-
+                print("* no instance found *")
 
     def do_all(self, arg):
         """Prints all string representation of all instances based or not

@@ -16,5 +16,13 @@
         "created_at": "2022-03-02T19:33:48.733297",
         "updated_at": "2022-03-02T19:33:48.735389",
         "__class__": "BaseModel"
+    },
+    "BaseModel.41d9859f-3c3f-41e0-80ec-3f7116c3c2cc": {
+        "id": "41d9859f-3c3f-41e0-80ec-3f7116c3c2cc",
+        "created_at": "2022-03-03T12:49:42.390832",
+        "updated_at": "2022-03-03T12:49:42.393046",
+        "first_name": "Betty",
+        "my_number": 12,
+        "__class__": "BaseModel"
     }
 }
