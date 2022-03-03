@@ -52,7 +52,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
         elif argum[0] not in storage.classes():
             print("** class doesn't exist **")
-        elif  len(argum) == 2:
+        elif  len(argum) < 2:
             print("** instance id missing **")
         else:
             llave = "{}.{}".format(argum[0], argum[1])
@@ -79,6 +79,31 @@ class HBNBCommand(cmd.Cmd):
             else:
                 storage.all().pop(llave)
                 storage.save()
+
+    def do_update(self, arg):
+        """
+        """
+        argum = arg.split()
+        args_size = len(argum)
+
+        if arg == "" or arg is None:
+            print("** class name missing **")
+        elif argum[0] not in storage.classes():
+            print("** class doesn't exist **")
+        elif  len(argum) < 2:
+            print("** instance id missing **")
+        else:
+            llave = "{}.{}".format(argum[0], argum[1])
+            busqueda = storage.all().get(llave)
+            if busqueda is None:
+                print("** no instance found **")
+            elif args_size == 2:
+                    print('** attribute name missing **')
+            elif args_size == 3:
+                print('** value missing **')
+            else:
+
+
     def do_all(self, arg):
         """Prints all string representation of all instances based or not
         on the class name.do_all

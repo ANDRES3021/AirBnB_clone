@@ -15,8 +15,9 @@ class FileStorage():
 
     def all(self):
         """Returna el diccionario objetos"""
+        self.reload()
         return (self.__objects)
-    
+
     def new(self, obj):
         """Crea una nueva clave (class.id) y valor (diccionario de atributos de instancia)
         """
