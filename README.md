@@ -1,6 +1,6 @@
 ![](https://www.samba.com.co/wp-content/uploads/2019/03/airbnb-colombia.jpg)
 
-# 0x00. AirBnB clone - The console
+# 0x00. AirBnB clone - The console  💻   💻   💻 
 
 ------------
 
@@ -16,7 +16,7 @@ Not all features were implemented, only some of them to cover the basics such as
 
 In this case we have two modes, interactive and non-interactive, it resembles the Unix shell made in previous projects as it prints the prompt (hbnh) waiting for the command by the user.
 
-### Example:
+### Example:  ⌨️   ⌨️   ⌨️ 
 
 - Interactive Mode: `$ ./console.py`
 
@@ -38,7 +38,7 @@ Quit command to exit the program
 guillaume@ubuntu:~/AirBnB$ 
 ```
 
-### Example:
+### Example:  ⌨️   ⌨️   ⌨️ 
 
 - Non-interactive Mode: `$ echo <command> | ./console.py`
 
@@ -52,7 +52,7 @@ EOF  all  create  destroy  help  quit  show  update
 ```
 ------------
 
-## Console commands:
+## Console commands:  🔡 🔠   🔡 🔠 
 
 |  Commands | Description | Input format |
 | ------------ | ------------ | ------------ |
@@ -70,7 +70,7 @@ EOF  all  create  destroy  help  quit  show  update
 
 ------------
 
-## Repository files:
+## Repository files:  📁 📂 🗂
 
 | File | Description | Attributes |
 | ------------ | ------------ | ------------ |
@@ -78,21 +78,21 @@ EOF  all  create  destroy  help  quit  show  update
 | user.py | User class for future user information. | email, password, first_name, last_name |
 | amenity.py | Class defines Amenity and its attributes. | name |
 | city.py | City class for information on future cities. | state_id, name |
-| Place | Place class for information on future accommodations. | city_id, user_id, name, description, number_rooms, number_bathrooms, max_guest, price_by_night, latitude, longitude, amenity_ids |
-| Review | Class defines Review and its attributes. | place_id, user_id, text |
-| State | Class defines State and its attributes. | name |
+| place.py | Place class for information on future accommodations. | city_id, user_id, name, description, number_rooms, number_bathrooms, max_guest, price_by_night, latitude, longitude, amenity_ids |
+| review.py | Class defines Review and its attributes. | place_id, user_id, text |
+| state.py | Class defines State and its attributes. | name |
 | file_storage.py | This class fulfills the purpose of Serialization-Deserialization of a .json file. |  __file_path, __objects |
 | console.py | Class for the command interpreter to manipulate the console. | prompt, list_class |
 
 ------------
 
-## Test Case:
+## Test Case: 📈 📉 📈 📉
 
 All the code is tested with the unittest module. The test for the classes are in the tests folder.
 
 ------------
 
-## General example
+## General example   ⌨️   ⌨️   ⌨️ 
 
 ```
 avendanoispepe@:~/holberton/AirBnB_clone$ ./console.py
@@ -103,24 +103,37 @@ Documented commands (type help <topic>):
 EOF  all  create  destroy  help  quit  show  update
 
 (hbnb) all
-["[BaseModel] (e9dc9a6d-368f-435c-9b05-b1b96be116dc) {'id': 'e9dc9a6d-368f-435c-9b05-b1b96be116dc', 'created_at': datetime.datetime(2022, 3, 3, 15, 33, 23, 326214), 'updated_at': datetime.datetime(2022, 3, 3, 15, 33, 23, 327203)}"]
+["[BaseModel] (e9dc9a6d-368f-435c-9b05-b1b96be116dc) {'id': 'e9dc9a6d-368f-435c-9b05-b1b96be116dc', 
+'created_at': datetime.datetime(2022, 3, 3, 15, 33, 23, 326214), 
+'updated_at': datetime.datetime(2022, 3, 3, 15, 33, 23, 327203)}"]
 
 (hbnb) all BaseModel
-["[BaseModel] (e9dc9a6d-368f-435c-9b05-b1b96be116dc) {'id': 'e9dc9a6d-368f-435c-9b05-b1b96be116dc', 'created_at': datetime.datetime(2022, 3, 3, 15, 33, 23, 326214), 'updated_at': datetime.datetime(2022, 3, 3, 15, 33, 23, 327203)}"]
+["[BaseModel] (e9dc9a6d-368f-435c-9b05-b1b96be116dc) {'id': 'e9dc9a6d-368f-435c-9b05-b1b96be116dc', 
+'created_at': datetime.datetime(2022, 3, 3, 15, 33, 23, 326214), 
+'updated_at': datetime.datetime(2022, 3, 3, 15, 33, 23, 327203)}"]
 
 (hbnb) create User
 62c78538-2b3b-45ff-aff5-c5df046884fa
 
 (hbnb) show User 62c78538-2b3b-45ff-aff5-c5df046884fa
-[User] (62c78538-2b3b-45ff-aff5-c5df046884fa) {'id': '62c78538-2b3b-45ff-aff5-c5df046884fa', 'created_at': datetime.datetime(2022, 3, 4, 0, 10, 27, 485384), 'updated_at': datetime.datetime(2022, 3, 4, 0, 10, 27, 486747)}
+[User] (62c78538-2b3b-45ff-aff5-c5df046884fa) {'id': '62c78538-2b3b-45ff-aff5-c5df046884fa', 
+'created_at': datetime.datetime(2022, 3, 4, 0, 10, 27, 485384), 
+'updated_at': datetime.datetime(2022, 3, 4, 0, 10, 27, 486747)}
 
 (hbnb) update User 62c78538-2b3b-45ff-aff5-c5df046884fa First_Name "Gintoki"
 
 (hbnb) show User 62c78538-2b3b-45ff-aff5-c5df046884fa
-[User] (62c78538-2b3b-45ff-aff5-c5df046884fa) {'id': '62c78538-2b3b-45ff-aff5-c5df046884fa', 'created_at': datetime.datetime(2022, 3, 4, 0, 10, 27, 485384), 'updated_at': datetime.datetime(2022, 3, 4, 0, 10, 27, 486747), 'First_Name': 'Gintoki'}
+[User] (62c78538-2b3b-45ff-aff5-c5df046884fa) {'id': '62c78538-2b3b-45ff-aff5-c5df046884fa', 
+'created_at': datetime.datetime(2022, 3, 4, 0, 10, 27, 485384), 
+'updated_at': datetime.datetime(2022, 3, 4, 0, 10, 27, 486747), 'First_Name': 'Gintoki'}
 
 (hbnb) all
-["[BaseModel] (e9dc9a6d-368f-435c-9b05-b1b96be116dc) {'id': 'e9dc9a6d-368f-435c-9b05-b1b96be116dc', 'created_at': datetime.datetime(2022, 3, 3, 15, 33, 23, 326214), 'updated_at': datetime.datetime(2022, 3, 3, 15, 33, 23, 327203)}", "[User] (62c78538-2b3b-45ff-aff5-c5df046884fa) {'id': '62c78538-2b3b-45ff-aff5-c5df046884fa', 'created_at': datetime.datetime(2022, 3, 4, 0, 10, 27, 485384), 'updated_at': datetime.datetime(2022, 3, 4, 0, 10, 27, 486747), 'First_Name': 'Gintoki'}"]
+["[BaseModel] (e9dc9a6d-368f-435c-9b05-b1b96be116dc) {'id': 'e9dc9a6d-368f-435c-9b05-b1b96be116dc', 
+'created_at': datetime.datetime(2022, 3, 3, 15, 33, 23, 326214), 
+'updated_at': datetime.datetime(2022, 3, 3, 15, 33, 23, 327203)}", 
+"[User] (62c78538-2b3b-45ff-aff5-c5df046884fa) {'id': '62c78538-2b3b-45ff-aff5-c5df046884fa', 
+'created_at': datetime.datetime(2022, 3, 4, 0, 10, 27, 485384), 
+'updated_at': datetime.datetime(2022, 3, 4, 0, 10, 27, 486747), 'First_Name': 'Gintoki'}"]
 
 (hbnb) destroy User 62c78538-2b3b-45ff-aff5-c5df046884fa
 
@@ -146,7 +159,7 @@ EOF  all  create  destroy  help  quit  show  update
 
 ------------
 
-## List of poinst.
+## List of poinst:  ✅   ✅   ✅ 
 
 |  Point | What is done at this point? | level |
 | ------------ | ------------ | ------------ |
@@ -164,7 +177,7 @@ EOF  all  create  destroy  help  quit  show  update
 
 ------------
 
-# Documentation:
+# Documentation: 📜 📃 📜 📃
 ### Links:
 
 - https://docs.python.org/3.4/library/cmd.html
