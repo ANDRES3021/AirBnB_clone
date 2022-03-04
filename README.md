@@ -140,7 +140,8 @@ EOF  all  create  destroy  help  quit  show  update
 (hbnb) show User 62c78538-2b3b-45ff-aff5-c5df046884fa
 ** no instance found **
 
-(hbnb)
+(hbnb) quit
+avendanoispepe@:~/holberton/AirBnB_clone$
 ```
 ------------
 
