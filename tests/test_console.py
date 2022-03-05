@@ -18,6 +18,7 @@ from models.state import State
 from models.user import User
 from models.base_model import BaseModel
 
+
 class TestConsole(unittest.TestCase):
     """Pruebas de la consola"""
 
@@ -68,7 +69,6 @@ class TestConsole(unittest.TestCase):
         self.assertTrue(issubclass(rev1.__class__, BaseModel))
         self.assertTrue(issubclass(place1.__class__, BaseModel))
         self.assertTrue(issubclass(user1.__class__, BaseModel))
-
 
 
 if __name__ == '__main__':
