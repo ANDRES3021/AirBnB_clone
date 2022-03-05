@@ -61,7 +61,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
         elif argum[0] not in storage.classes():
             print("** class doesn't exist **")
-        elif len(argum) < 2:
+        elif len(argum) == 1:
             print("** instance id missing **")
         else:
             llave = "{}.{}".format(argum[0], argum[1])
