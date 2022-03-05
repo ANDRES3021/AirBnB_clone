@@ -6,7 +6,11 @@ from models.base_model import BaseModel
 class User(BaseModel):
     """Clase que representa usuario"""
 
-    email = ""
-    password = ""
-    first_name = ""
-    last_name = ""
+    email = str()
+    password = str()
+    first_name = str()
+    last_name = str()
+    
+    def __init__(self, *args, **kwargs):
+        """Method Init"""
+        super().__init__(*args, **kwargs)
