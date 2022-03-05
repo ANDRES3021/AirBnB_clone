@@ -43,14 +43,15 @@ class HBNBCommand(cmd.Cmd):
         Crea una nueva instancia si los argumentos son validos.
         """
         argum = arg.split()
-        if arg == "" or arg is None:
+        if len(arg) == 0:
             print("** class name missing **")
-        elif arg not in storage.classes():
-            print("** class doesn't exist **")
+            return
         elif storage.classes():
             nuevaInstancia = eval("{}()".format(argum[0]))
             nuevaInstancia.save()
             print(nuevaInstancia.id)
+        else:
+            print("** class doesn't exist **")
 
     def do_show(self, arg):
         """
