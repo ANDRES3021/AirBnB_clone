@@ -4,6 +4,13 @@ Definimos el modulo FileStorage
 """
 import json
 import os
+    from models.base_model import BaseModel
+    from models.user import User
+    from models.amenity import Amenity
+    from models.city import City
+    from models.place import Place
+    from models.review import Review
+    from models.state import State
 
 
 class FileStorage():
@@ -45,14 +52,6 @@ class FileStorage():
         Deserializa el archivo JSON a __objects
         Configura todas las claves y valores y recrea las instancias
         """
-        from models.base_model import BaseModel
-        from models.user import User
-        from models.amenity import Amenity
-        from models.city import City
-        from models.place import Place
-        from models.review import Review
-        from models.state import State
-
         if os.path.isfile(FileStorage.__file_path):
             with open(self.__file_path, "r", encoding='utf-8') as pepe:
                 objeto = json.load(pepe)
