@@ -120,25 +120,23 @@ class HBNBCommand(cmd.Cmd):
                 print("* no instance found *")
 
     def do_all(self, arg):
-        """Prints all string representation of all instances based or not
-        on the class name.do_all
-        """
-        args = arg.split()
-        list_strings = []
-        objects = storage.all()
-        for key in objects.keys():
-            value = objects.get(key)
-            if args:
-                if args[0] in self.list_class:
-                    if value.__class__.__name__ == args[0]:
-                        list_strings.append(value.__str__())
-                else:
-                    print("** class doesn't exist **")
-                    return
-            else:
-                list_strings.append(objects[key].__str__())
-        print(list_strings)
-
+        """method to Prints all string representation of all instances"""
+        arg = arg.split()
+        if len(arg) == 0:
+            new_list = []
+            for v in storage.all().values():
+                cadena = str(v.__str__())
+                new_list.append(cadena)
+            print(new_list)
+        elif arg[0] not in self.list_class:
+            print("** class doesn't exist **")
+        else:
+            new_list = []
+            for v in storage.all().values():
+                if arg[0] == type(v).__name__:
+                    cadena = str(v.__str__())
+                    new_list.append(cadena)
+            print(new_list)
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
