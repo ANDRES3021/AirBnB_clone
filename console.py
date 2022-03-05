@@ -129,11 +129,8 @@ class HBNBCommand(cmd.Cmd):
         for key in objects.keys():
             value = objects.get(key)
             if args:
-                # por si pide objetos de alguna clase
                 if args[0] in self.list_class:
-                    # para crear algun tipo de objeto
                     if value.__class__.__name__ == args[0]:
-                        # si la clase de objeto coincide
                         list_strings.append(value.__str__())
                 else:
                     print("** class doesn't exist **")
