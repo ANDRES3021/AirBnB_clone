@@ -56,7 +56,7 @@ class HBNBCommand(cmd.Cmd):
         """
         Imprime la representancion de la cadena de una instancia
         """
-        argum = arg.split(' ')
+        argum = arg.split()
         if arg == "" or arg is None:
             print("** class name missing **")
         elif argum[0] not in storage.classes():
