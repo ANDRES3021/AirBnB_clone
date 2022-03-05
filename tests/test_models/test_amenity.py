@@ -56,6 +56,6 @@ class Test_Amenity(unittest.TestCase):
         self.assertEqual(type_of_dict, "<class 'dict'>")
         self.assertIn(self.instancia_nombre, self.data_base.keys())
 
+
 if __name__ == '__main__':
     unittest.main()
-    

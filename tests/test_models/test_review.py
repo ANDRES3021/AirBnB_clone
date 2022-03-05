@@ -32,7 +32,7 @@ class TestReview(unittest.TestCase):
         review = Review()
         self.assertTrue(hasattr(review, "user_id"))
         self.assertEqual(review.user_id, "")
-    
+
     def test_text(self):
         """Atributo de clase y si esta vacia la cadena"""
         review = Review()
@@ -49,12 +49,12 @@ class TestReview(unittest.TestCase):
         """valores en dict devueltos desde to_dict sean correctos"""
         formato = "%Y-%m-%dT%H:%M:%S.%f"
         review = Review()
-        diccionario = review.to_dict()
-        self.assertEqual(diccionario["__class__"], "Review")
-        self.assertEqual(type(diccionario["created_at"]), str)
-        self.assertEqual(type(diccionario["updated_at"]), str)
-        self.assertEqual(diccionario["created_at"], review.created_at.strftime(formato))
-        self.assertEqual(diccionario["updated_at"], review.updated_at.strftime(formato))
+        di = review.to_dict()
+        self.assertEqual(di["__class__"], "Review")
+        self.assertEqual(type(di["created_at"]), str)
+        self.assertEqual(type(di["updated_at"]), str)
+        self.assertEqual(di["created_at"], review.created_at.strftime(formato))
+        self.assertEqual(di["updated_at"], review.updated_at.strftime(formato))
 
     def test_to_dict_creates_dict(self):
         """to_dict crea un diccionario con los atributos adecuados"""
@@ -73,5 +73,6 @@ class TestReview(unittest.TestCase):
         self.assertIsInstance(review, Review)
         self.assertTrue(issubclass(type(review), BaseModel))
 
+
 if __name__ == '__main__':
-    unittest.main() 
+    unittest.main()

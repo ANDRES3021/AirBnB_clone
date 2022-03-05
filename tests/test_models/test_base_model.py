@@ -21,13 +21,13 @@ class TestBaseModel(unittest.TestCase):
     def test_setUp(self):
         """Configurar para pruebas de cadenas de documentos"""
         self.base_funcs = inspect.getmembers(BaseModel, inspect.isfunction)
- 
+
     def test_instancia(self):
         """Prueba la instanciación de la clase BaseModel"""
-        base = BaseModel()
-        self.assertEqual(str(type(base)), "<class 'models.base_model.BaseModel'>")
-        self.assertIsInstance(base, BaseModel)
-        self.assertTrue(issubclass(type(base), BaseModel))
+        b = BaseModel()
+        self.assertEqual(str(type(b)), "<class 'models.base_model.BaseModel'>")
+        self.assertIsInstance(b, BaseModel)
+        self.assertTrue(issubclass(type(b), BaseModel))
 
     def test_restablece(self):
         """Restablece los datos de FileStorage."""
@@ -49,9 +49,10 @@ class TestBaseModel(unittest.TestCase):
         args = [iterador for iterador in range(1000)]
         base = BaseModel(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
         base = BaseModel(*args)
-    
+
     def test_momento_creacion(self):
-        """Prueba si updated_at y created_at están actualizados en el momento de la creación."""
+        """Prueba si updated_at y created_at están
+        actualizados en el momento de la creación."""
         dato = datetime.now()
         base = BaseModel()
         diff = base.updated_at - base.created_at
@@ -64,7 +65,7 @@ class TestBaseModel(unittest.TestCase):
 
         ld = [BaseModel().id for iterador in range(1000)]
         self.assertEqual(len(set(ld)), len(ld))
-    
+
     def test_save(self):
         """Prueba el método de instancia pública save()."""
 
@@ -74,7 +75,7 @@ class TestBaseModel(unittest.TestCase):
         base.save()
         diff = base.updated_at - tiempo
         self.assertTrue(abs(diff.total_seconds()) < 0.01)
-        
+
     def test_str(self):
         """Pruebas para el método __str__."""
         base = BaseModel()
@@ -135,12 +136,12 @@ class TestBaseModel(unittest.TestCase):
         """Prueba la creación de instancias con **kwargs del dictado
         personalizado."""
         diccionario = {"__class__": "BaseModel",
-             "updated_at":
-             datetime(2050, 12, 30, 23, 59, 59, 123456).isoformat(),
-             "created_at": datetime.now().isoformat(),
-             "id": uuid.uuid4(),
-             "my_first_name": "Sebastian",
-             "my_number": 21}
+                       "updated_at":
+                       datetime(2050, 12, 30, 23, 59, 59, 123456).isoformat(),
+                       "created_at": datetime.now().isoformat(),
+                       "id": uuid.uuid4(),
+                       "my_first_name": "Sebastian",
+                       "my_number": 21}
         obj = BaseModel(**diccionario)
         self.assertEqual(obj.to_dict(), diccionario)
 
@@ -157,7 +158,7 @@ class TestBaseModel(unittest.TestCase):
             self.assertEqual(len(f.read()), len(json.dumps(llave)))
             f.seek(0)
             self.assertEqual(json.load(f), llave)
-    
+
     def test_save_sin_argumentos(self):
         """Prueba save() sin argumentos"""
         self.test_restablece()
@@ -174,5 +175,6 @@ class TestBaseModel(unittest.TestCase):
         mensaje = "save() takes 1 positional argument but 2 were given"
         self.assertEqual(str(e.exception), mensaje)
 
+
 if __name__ == '__main__':
-    unittest.main() 
+    unittest.main()

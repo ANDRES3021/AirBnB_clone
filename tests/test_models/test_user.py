@@ -58,9 +58,9 @@ class TestUser(unittest.TestCase):
 
     def test_userstr(self):
         """Test for the method __str__"""
-        prueba = '[User] ({}) {}'.format(self.instance.id, self.instance.__dict__)
+        p = '[User] ({}) {}'.format(self.instance.id, self.instance.__dict__)
         my_string = self.instance.__str__()
-        self.assertEqual(prueba, my_string)
+        self.assertEqual(p, my_string)
 
     def test_usersave(self):
         """Test for the method save"""

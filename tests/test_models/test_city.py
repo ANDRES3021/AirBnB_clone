@@ -58,9 +58,9 @@ class Test_City(unittest.TestCase):
 
     def test_citystr(self):
         """Test for the method __str__"""
-        prueba = '[City] ({}) {}'.format(self.instancia.id, self.instancia.__dict__)
+        p = '[City] ({}) {}'.format(self.instancia.id, self.instancia.__dict__)
         my_string = self.instancia.__str__()
-        self.assertEqual(prueba, my_string)
+        self.assertEqual(p, my_string)
 
     def test_citytodict(self):
         """Test for the method to_dict"""
