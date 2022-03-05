@@ -20,9 +20,3 @@ class Place(BaseModel):
     latitude = 0.0
     longitude = 0.0
     amenity_ids = []
-
-    def __init__(self, *args, **kwargs):
-        """
-            Sends arguments to the parent class and create a new instance
-        """
-        super().__init__(*args, **kwargs)
