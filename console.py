@@ -24,7 +24,7 @@ class HBNBCommand(cmd.Cmd):
         """
         Quit command to exit the program
         """
-        sys.exit(0)
+        return True
 
     def emptyline(self):
         """
@@ -36,7 +36,7 @@ class HBNBCommand(cmd.Cmd):
         """
         comando para salir una vez leido todo
         """
-        sys.exit(0)
+        return True
 
     def do_create(self, arg):
         """
