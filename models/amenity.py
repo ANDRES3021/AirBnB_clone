@@ -10,6 +10,3 @@ class Amenity(BaseModel):
     Clase Amenity que contiene el atributo name.
     """
     name = ""
-
-     def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
