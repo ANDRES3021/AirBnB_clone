@@ -105,9 +105,9 @@ class HBNBCommand(cmd.Cmd):
         elif len(argum) < 2:
             print("** instance id missing **")
         elif len(argum) == 2:
-            print("* attribute name missing *")
+            print("** attribute name missing **")
         elif len(argum) == 3:
-            print("* value missing *")
+            print("** value missing **")
         else:
             llave = "{}.{}".format(argum[0], argum[1])
             argum[3] = int(argum[3]) if argum[3][0] != '"' else argum[3][1:-1]
@@ -117,7 +117,7 @@ class HBNBCommand(cmd.Cmd):
                 storage.all()[llave] = val
                 storage.save()
             else:
-                print("* no instance found *")
+                print("** no instance found **")
 
     def do_all(self, arg):
         """Prints all string representation of all instances based or not
