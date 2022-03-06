@@ -7,66 +7,65 @@ from models import storage
 
 
 class Test_City(unittest.TestCase):
-    """Test for the class City"""
-    instancia = City()
-    instancia.state_id = 'Betty'
-    instancia.name = 'Bogota'
+     """
+        unitesst for city class
+    """
 
-    data_base = storage.all()
-    instancia_nombre = 'City.' + instancia.id
+    def issub_class(self):
+        """
+            test if city class is sub class of base model
+        """
+        city = City()
+        self.assertIsInstance(city, BaseModel)
+        self.assertTrue(hasattr(city, "id"))
+        self.assertTrue(hasattr(city, "created_at"))
+        self.assertTrue(hasattr(city, "update_at"))
 
-    def test_cityinit(self):
-        """Test for the method __init__"""
-        features = self.data_base.get(self.instancia_nombre).to_dict()
-        clase_c = "<class 'models.city.City'>"
-        tiempo = "<class 'datetime.datetime'>"
+    def test_name(self):
+        """
+            test class attribute name
+        """
+        city = City()
+        self.assertTrue(hasattr(city, "name"))
+        self.assertEqual(city.name, "")
 
-        # Data types
-        self.assertEqual(str(type(self.instancia)), clase_c)
-        self.assertEqual(str(type(self.instancia.id)), "<class 'str'>")
-        self.assertEqual(str(type(self.instancia.created_at)), tiempo)
-        self.assertEqual(str(type(self.instancia.updated_at)), tiempo)
+    def test_state_id(self):
+        """
+            test class attribute state_id
+        """
+        city = City()
+        self.assertTrue(hasattr(city, "state_id"))
+        self.assertEqual(city.state_id, "")
 
-        # Basic features storage
-        self.assertIn(self.instancia_nombre, self.data_base.keys())
-        self.assertIn('created_at', features.keys())
-        self.assertIn('updated_at', features.keys())
-        self.assertIn('id', features.keys())
-        self.assertIn('name', features.keys())
-        self.assertIn('state_id', features.keys())
+    def test_to_dictcity(self):
+        """
+            test to dict method with city and the type
+            and content
+        """
+        city = City()
+        dict_cont = city.to_dict()
+        self.assertEqual(type(dict_cont), dict)
+        for attr in city.__dict__:
+            self.assertTrue(attr in dict_cont)
+            self.assertTrue("__class__" in dict_cont)
 
-        test_dict = {"id": "6d60b737-bb76-4f09-9bad-b7fcd5d8d1ed",
-                     "created_at": "2022-03-04T19:26:49.736081",
-                     "updated_at": "2022-03-04T19:26:49.737133",
-                     "__class__": "City",
-                     "state_id": "123",
-                     "name": "Paipa"}
-
-        instance2 = City(**test_dict)
-
-        self.assertIsInstance(instance2, City)
-        self.assertEqual(instance2.id, "6d60b737-bb76-4f09-9bad-b7fcd5d8d1ed")
-        self.assertEqual(instance2.state_id, "123")
-        self.assertEqual(instance2.name, "Paipa")
-
-    def test_citysave(self):
-        """Test for the method save"""
-        dato_update = self.instancia.updated_at
-        self.instancia.save()
-        new_date = self.instancia.updated_at
-        self.assertNotEqual(dato_update, new_date)
-
-    def test_citystr(self):
-        """Test for the method __str__"""
-        p = '[City] ({}) {}'.format(self.instancia.id, self.instancia.__dict__)
-        my_string = self.instancia.__str__()
-        self.assertEqual(p, my_string)
-
-    def test_citytodict(self):
-        """Test for the method to_dict"""
-        type_of_dict = str(type(self.instancia.to_dict()))
-        self.assertEqual(type_of_dict, "<class 'dict'>")
-        self.assertIn(self.instancia_nombre, self.data_base.keys())
+    def test_dict_value(self):
+        """
+            test the returned dictionar values
+        """
+        time_format = "%Y-%m-%dT%H:%M:%S.%f"
+        city = City()
+        dict_con = city.to_dict()
+        self.assertEqual(dict_con["__class__"], "City")
+        self.assertEqual(type(dict_con["created_at"]), str)
+        self.assertEqual(type(dict_con["updated_at"]), str)
+        self.assertEqual(
+            dict_con["created_at"],
+            city.created_at.strftime(time_format)
+        )
+        self.assertEqual(
+            dict_con["updated_at"],
+            city.updated_at.strftime(time_format))
 
 
 if __name__ == '__main__':
