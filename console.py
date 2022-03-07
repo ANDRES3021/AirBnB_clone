@@ -20,6 +20,30 @@ class HBNBCommand(cmd.Cmd):
     list_class = ['BaseModel', 'User', 'Amenity', 'City',
                   'Place', 'Review', 'State']
 
+    def retrieve_all_instances(self, line):
+        storage.reload()
+        to_default = line.split("(", 1)
+        if len(to_default) > 0:
+            to_arguments = to_default[1].replace("\"", "", 2)
+            to_arguments = (
+                to_arguments if ")" not in to_arguments
+                else to_arguments.replace(")", "")
+            )
+            to_default = to_default[0].split(".", 1)
+            if len(to_default) > 0:
+                if to_default[1] == "all":
+                    return self.do_all(to_default[0])
+                elif to_default[1] == "count":
+                    return self.count(to_default[0])
+                elif to_default[1] == "show":
+                    return self.do_show(to_default[0] + " " + to_arguments)
+                elif to_default[1] == "destroy":
+                    return self.do_destroy(to_default[0] + " " + to_arguments)
+                else:
+                    return super().default(line)
+        else:
+            return super().default(line)
+
     def do_quit(self, arg):
         """
         Quit command to exit the program
