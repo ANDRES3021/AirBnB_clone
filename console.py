@@ -20,9 +20,9 @@ class HBNBCommand(cmd.Cmd):
     list_class = ['BaseModel', 'User', 'Amenity', 'City',
                   'Place', 'Review', 'State']
 
-    def retrieve_all_instances(self, line):
+    def default(self, arg):
         storage.reload()
-        to_default = line.split("(", 1)
+        to_default = arg.split("(", 1)
         if len(to_default) > 0:
             to_arguments = to_default[1].replace("\"", "", 2)
             to_arguments = (
@@ -40,9 +40,9 @@ class HBNBCommand(cmd.Cmd):
                 elif to_default[1] == "destroy":
                     return self.do_destroy(to_default[0] + " " + to_arguments)
                 else:
-                    return super().default(line)
+                    return super().default(arg)
         else:
-            return super().default(line)
+            return super().default(arg)
 
     def do_quit(self, arg):
         """
