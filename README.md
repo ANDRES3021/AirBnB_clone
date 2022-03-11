@@ -178,22 +178,6 @@ avendanoispepe@:~/holberton/AirBnB_clone$
 
 ------------
 
-## Web Static:  ✅   ✅   ✅ 
-
-|  Point | What is done at this point? | level |
-| ------------ | ------------ | ------------ |
-| 0-index.html | Write an HTML page that displays a header and a footer. | Mandatory |
-| 1-index.html | Write an HTML page that displays a header and a footer by using the style tag in the head tag (same as 0-index.html) | Mandatory |
-| 2-index.html, styles/2-common.css, styles/2-header.css, styles/2-footer.css | Write an HTML page that displays a header and a footer by using CSS files (same as 1-index.html) | Mandatory |
-| 3-index.html, styles/3-common.css, styles/3-header.css, styles/3-footer.css | Write an HTML page that displays a header and footer by using CSS files (same as 2-index.html) | Mandatory |
-| 4-index.html, styles/4-common.css, styles/3-header.css, styles/3-footer.css, styles/4-filters.css | Write an HTML page that displays a header, footer and a filters box with a search button. | Mandatory |
-| 5-index.html, styles/4-common.css, styles/3-header.css, styles/3-footer.css, styles/5-filters.css, images/ | Write an HTML page that displays a header, footer and a filters box. | Mandatory |
-| 6-index.html, styles/4-common.css, styles/3-header.css, styles/3-footer.css, styles/6-filters.css, images/ | Write an HTML page that displays a header, footer and a filters box with dropdown. | Mandatory |
-| 7-index.html, styles/4-common.css, styles/3-header.css, styles/3-footer.css, styles/6-filters.css, styles/7-places.css, images/ | Write an HTML page that displays a header, footer, a filters box with dropdown and results. | Mandatory |
-| 8-index.html, styles/4-common.css, styles/3-header.css, styles/3-footer.css, styles/6-filters.css, styles/8-places.css, images/ | Write an HTML page that displays a header, a footer, a filter box (dropdown list) and the result of the search. | Mandatory |
-
-------------
-
 # Documentation: 📜 📃 📜 📃
 ### Links:
 
